@@ -20,7 +20,7 @@ def main():
     
     query_list = []
     qid_list = []
-    output_file = oj(args.output_dir_path, args.query_type + "_cast19_topic_with_relp.jsonl")
+    output_file = oj(args.output_dir_path, args.query_type + "_topiocqa_topic_with_relp_bm25.jsonl")
     with open(args.input_query_path, "r") as fin:
         data = fin.readlines()
 
@@ -76,10 +76,10 @@ def main():
 def get_args():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--input_query_path", type=str, default="../datasets/cast19_topic.jsonl")
+    parser.add_argument("--input_query_path", type=str, default="../datasets/topic_topiocqa_dev.jsonl")
     parser.add_argument('--output_dir_path', type=str, default="../datasets/")
-    #parser.add_argument('--index_dir_path', type=str, default="../../ConvDR-main/datasets/topiocqa/indexes/bm25")
-    parser.add_argument('--index_dir_path', type=str, default="../../ConvDR-main/datasets/cast20/bm25_index")
+    parser.add_argument('--index_dir_path', type=str, default="../../ConvDR-main/datasets/topiocqa/indexes/bm25")
+    #parser.add_argument('--index_dir_path', type=str, default="../../ConvDR-main/datasets/cast21/bm25_index")
     #parser.add_argument('--index_dir_path', type=str, default="../../ConvDR-main/datasets/qrecc/indexes/bm25")
     parser.add_argument("--top_k", type=int,  default=3)
     #parser.add_argument("--rel_threshold", type=int,  default=1)
