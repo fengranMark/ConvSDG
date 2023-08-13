@@ -282,7 +282,7 @@ def output_test_res(query_embedding2id,
 
     all_passages = load_collection(args.passage_collection_path) # dict - pid: passage
 
-    output_file = oj(args.output_dir_path, args.query_type + "_cast1920_dev_with_relp_new.jsonl")
+    output_file = oj(args.output_dir_path, args.query_type + "_cast1920_dev_with_relp.jsonl")
     idx = 0
     with open(output_file, "w") as fout:
         for qid, passages in qids_to_ranked_candidate_passages.items():
@@ -335,7 +335,7 @@ def main():
 def get_args():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument("--test_file_path", type=str, default="../datasets/q+a+topic_cast1920_dev_with_relp.jsonl")
+    parser.add_argument("--test_file_path", type=str, default="../datasets/cast19_topic.jsonl")
     #parser.add_argument("--passage_collection_path", type=str, default="../../ConvDR-main/datasets/topiocqa/full_wiki_segments.tsv")
     #parser.add_argument("--passage_embeddings_dir_path", type=str, default="../../ConvDR-main/datasets/topiocqa/embeds")
     #parser.add_argument("--passage_offset2pid_path", type=str, default="../../ConvDR-main/datasets/topiocqa/tokenized/offset2pid.pickle")
@@ -348,23 +348,24 @@ def get_args():
     parser.add_argument("--pretrained_encoder_path", type=str, default="../../ConvDR-main/checkpoints/ad-hoc-ance-msmarco")
     parser.add_argument("--output_dir_path", type=str, default="../datasets")
 
-    parser.add_argument("--query_type", type=str, default="q+a+topic")
+    parser.add_argument("--query_type", type=str, default="convq+conva+topic")
     parser.add_argument("--n_gpu", type=int, default=1)
     parser.add_argument("--top_k", type=int, default=3)
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--per_gpu_test_batch_size", type=int, default=4)
-    parser.add_argument("--passage_block_num", type=int, default=26) # 22 for qrecc and 26 for topiocqa 16 for cast
+    parser.add_argument("--passage_block_num", type=int, default=16) # 22 for qrecc and 26 for topiocqa 16 for cast
     parser.add_argument("--disable_tqdm", type=bool, default=False)
-    parser.add_argument("--use_gpu", type=bool, default=False)
+    parser.add_argument("--use_gpu", type=bool, default=True)
 
     parser.add_argument("--max_query_length", type=int, default=64)
     parser.add_argument("--max_response_length", type=int, default=128)
+    parser.add_argument("--max_concat_length", type=int, default=510)
 
     args = parser.parse_args()
-    #if args.use_gpu:
-    #    device = torch.device("cuda:0")
-    #else:
-    device = torch.device("cpu")
+    if args.use_gpu:
+        device = torch.device("cuda:0")
+    else:
+        device = torch.device("cpu")
     args.device = device
 
     logger.info("---------------------The arguments are:---------------------")
