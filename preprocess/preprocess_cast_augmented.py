@@ -162,7 +162,7 @@ def extract_doc_content_of_bm25_hard_negs_for_train_file(collection_path,
 
 if __name__ == "__main__":
     query_file_1 = "train_cast.jsonl"
-    query_file_2 = "test_rewrite1.jsonl"
+    query_file_2 = "test_rewrite1.jsonl" 
     query_file_3 = "test_rewrite2.jsonl"
     qrel_file = "train_qrels.tsv"
     collection_file = "../../ConvDR-main/datasets/cast20/collection.tsv"
