@@ -49,7 +49,9 @@ The supervision signals assigned for dialogue-level generated data (for unsuperv
     python search_relevant_p_sparse.py
     python search_relevant_p_dense.py
 
-For the query-level generated data (for semi-supervised w/. relevance judgment), we directly use the original annotations as supervision signals.
+For the query-level generated data (for semi-supervised w/. relevance judgment), we directly use the original annotations as supervision signals. Thus, after generating the augmented query data, run the following command for combination:
+
+    python preprocess_cast_augmented.py
 
 ## 5. Conversational Dense Retrieval Fine-tuning
 To conduct conversational dense retrieval fine-tuning, please run the following commands. The pre-trained language model we use for dense retrieval is [ANCE](https://github.com/microsoft/ANCE).
