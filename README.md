@@ -69,7 +69,7 @@ To conduct conversational dense retrieval fine-tuning, please run the following 
 
 ## 6. Retrieval evaluation
 
-Now, we can perform retrieval to evaluate the ConvHACL-trained dense retriever by running:
+Now, we can perform retrieval to evaluate the ConvSDG-trained dense retriever by running:
 
     python test_retrieval_cast.py --pretrained_encoder_path=$trained_model_path \ 
       --passage_embeddings_dir_path=$passage_embeddings_dir_path \ 
