@@ -1,5 +1,5 @@
 # ConvSDG
-A code repository of WWW 2024 Workshop - Information Retrieval Meets Large Language Models accepted paper - ConvSDG: Session Data Generation for Conversational Search
+ConvSDG: Session Data Generation for Conversational Search - code repository of WWW 2024 Workshop - Information Retrieval Meets Large Language Models Paper
 
 # Environment Dependency
 
