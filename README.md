@@ -88,3 +88,14 @@ Now, we can perform retrieval to evaluate the ConvSDG-trained dense retriever by
       --passage_block_num=$passage_block_num \
       --use_gpu=True
 
+## Cite Format
+
+  ```
+  @inproceedings{mo2024convsdg,
+  title={ConvSDG: Session Data Generation for Conversational Search},
+  author={Mo, Fengran and Yi, Bole and Mao, Kelong and Qu, Chen and Huang, Kaiyu and Nie, Jian-Yun},
+  booktitle={Companion Proceedings of the ACM on Web Conference 2024},
+  pages={1634--1642},
+  year={2024}
+}
+  ```
